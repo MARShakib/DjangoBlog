@@ -7,8 +7,9 @@
 {% block content %}
 <h1>{{post.title}}</h1>
 <small>
-    {{post.author.first_name}} {{post.author.last_name}} - <small><a
-            href="{% url 'update_post' post.pk %}">Edit</a></small>
+    {{post.author.first_name}} {{post.author.last_name}} -
+    <small><a href="{% url 'update_post' post.pk %}">Edit</a></small> -
+    <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
 </small>
 <br>
 <hr><br>
@@ -16,6 +17,6 @@
     {{post.body}}
 </p>
 <a href="{% url 'home' %}" class="btn btn-outline-secondary">
-    Back
+    Back to home
 </a>
 {% endblock %}
