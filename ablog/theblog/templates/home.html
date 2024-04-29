@@ -1,16 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+<div style="color: green;">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
 <h1>Post</h1>
 <ul>
     {% for post in object_list %}
     <li><a href="{% url 'article-detail' post.pk %}">{{post.title}}</a> - {{post.author.first_name}}
         {{post.author.last_name}}
         - <small>{{post.post_date}}</small>
+        {% if user.is_authenticated %}
         - <small><a href="{% url 'update_post' post.pk %}">Edit</a></small>
         - <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
+        {% endif %}
         <br>
-        {{post.body}}
+        {{post.body | slice:':200'}}
     </li>
     {% endfor %}
 </ul>

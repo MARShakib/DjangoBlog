@@ -9,6 +9,7 @@ from django.views.generic import (
 from django.urls import reverse_lazy
 from .models import Post
 from .forms import PostForm, EditForm
+from django.http import HttpResponse
 
 # Create your views here.
 

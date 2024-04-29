@@ -6,9 +6,24 @@ Login
 
 {% block content %}
 <h1>Login</h1>
+<!-- {% if messages %}
+{% for message in messages %}
+<div>
+    {{message}}
+</div>
+{% endfor %}
+{% endif %} -->
+{% if message %}
+<div style="color: red;">
+    {{message}}
+</div>
+{% endif %}
 <div class="form-group">
     <form method="post">{% csrf_token %}
-        {{ form.as_p }}
+        <input type="text" class="form-control" required name='username' placeholder="Enter Username">
+        <br>
+        <input type="password" class="form-control" required name='password' placeholder="Password">
+        <br>
         <input type="submit" value="Login" class="btn btn-secondary">
     </form>
 </div>

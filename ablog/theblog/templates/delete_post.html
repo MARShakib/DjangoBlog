@@ -5,6 +5,7 @@ Delete Post
 {% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
 <h1>Delete Post</h1> <br><br>
 <h3>Delete: {{post.title}}</h3>
 <div class="form-group">
@@ -13,4 +14,7 @@ Delete Post
         <button class="btn btn-secondary">Delete</button>
     </form>
 </div>
+{% else %}
+<h1>Please, log in first</h1>
+{% endif %}
 {% endblock %}
